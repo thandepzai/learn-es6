@@ -74,3 +74,18 @@ export const name2 = "A";
 // file b.js
 import { name3 } from "./a.js";
 console.log(name3); // ✅ "A"
+
+
+// 5. Nâng hạ biến đổi varCác biến đã khai báo được nâng lên , 
+// nghĩa là bạn có thể tham chiếu đến biến ở bất kỳ đâu trong phạm vi của nó, 
+// ngay cả khi chưa khai báo. Bạn có thể thấy varcác khai báo được "nâng" lên đầu hàm hoặc phạm vi toàn cục của nó. 
+// Tuy nhiên, nếu bạn truy cập một biến trước khi nó được khai báo, giá trị luôn là undefined, 
+// vì chỉ có khai báo và khởi tạo mặc định (với undefined) của nó được nâng lên, chứ không phải việc gán giá trị .
+
+console.log(x === undefined); // true
+var x = 3;
+
+(function () {
+  console.log(x); // undefined
+  var x = "local value";
+})();
